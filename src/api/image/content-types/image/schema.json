@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "images",
+  "info": {
+    "singularName": "image",
+    "pluralName": "images",
+    "displayName": "Image",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "images"
+    },
+    "alt": {
+      "type": "text"
+    },
+    "BW": {
+      "type": "boolean"
+    },
+    "references": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::reference.reference",
+      "inversedBy": "images"
+    }
+  }
+}
