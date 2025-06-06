@@ -448,11 +448,13 @@ export interface ApiImageImage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    home: Schema.Attribute.Boolean;
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::image.image'> &
       Schema.Attribute.Private;
+    position: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     references: Schema.Attribute.Relation<
       'manyToMany',
@@ -468,6 +470,7 @@ export interface ApiImageImage extends Struct.CollectionTypeSchema {
 export interface ApiLogoLogo extends Struct.SingleTypeSchema {
   collectionName: 'logos';
   info: {
+    description: '';
     displayName: 'logo';
     pluralName: 'logos';
     singularName: 'logo';
@@ -481,6 +484,10 @@ export interface ApiLogoLogo extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    img_dark: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
       Schema.Attribute.Private;
@@ -514,7 +521,10 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
       'api::reference.reference'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo_dark: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo_light: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

@@ -4,13 +4,28 @@
   "info": {
     "singularName": "logo",
     "pluralName": "logos",
-    "displayName": "logo"
+    "displayName": "logo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "img_dark": {
       "allowedTypes": [
         "images",
         "files",
@@ -18,10 +33,7 @@
         "audios"
       ],
       "type": "media",
-      "multiple": false
-    },
-    "alt": {
-      "type": "string"
+      "multiple": true
     }
   }
 }

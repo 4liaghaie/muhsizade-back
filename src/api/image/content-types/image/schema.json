@@ -41,6 +41,12 @@
       "relation": "manyToMany",
       "target": "api::reference.reference",
       "inversedBy": "images"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "home": {
+      "type": "boolean"
     }
   }
 }

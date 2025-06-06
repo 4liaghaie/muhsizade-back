@@ -14,7 +14,7 @@
     "title": {
       "type": "string"
     },
-    "logo": {
+    "logo_light": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -33,6 +33,16 @@
       "relation": "manyToMany",
       "target": "api::image.image",
       "mappedBy": "references"
+    },
+    "logo_dark": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
